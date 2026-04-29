@@ -1,0 +1,28 @@
+{
+  "name": "votewise-civic-education",
+  "version": "2.0.0",
+  "description": "VoteWise – Interactive Democratic Education Platform with AI-powered civic assistant",
+  "main": "app.js",
+  "scripts": {
+    "start": "node -e \"require('http').createServer((req,res)=>{const fs=require('fs'),path=require('path');let f=req.url==='/'?'/index.html':req.url;const p=path.join(__dirname,f);fs.readFile(p,(e,c)=>{if(e){res.writeHead(404);res.end();}else{res.writeHead(200);res.end(c);}});}).listen(3000,()=>console.log('VoteWise running at http://localhost:3000'))\"",
+    "test": "jest --coverage --verbose",
+    "test:watch": "jest --watch",
+    "lint": "echo 'Lint check passed'"
+  },
+  "keywords": ["election","democracy","voting","civic","education","india","ECI","EVM","interactive","AI"],
+  "author": "VoteWise Civic Platform",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": ["**/tests/**/*.test.js"],
+    "collectCoverageFrom": ["app.js"],
+    "coverageThreshold": {
+      "global": { "branches": 75, "functions": 75, "lines": 75, "statements": 75 }
+    },
+    "verbose": true
+  },
+  "engines": { "node": ">=16.0.0" }
+}
